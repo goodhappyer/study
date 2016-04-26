@@ -1,0 +1,90 @@
+Buileder（生成器）—对象创建型模式
+
+一 意图
+
+将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
+
+二 适用性
+
+在以下情况使用Build模式：
+
+1 当创建复杂对象的算法应该独立于该对象的组成部分以及它们的装配方式时。
+
+2 当构造过程必须允许被构造的对象有不同的表示时。
+
+3 Builder模式要解决的也正是这样的问题：
+
+　　当我们要创建的对象很复杂的时候（通常是由很多其他的对象组合而成），
+
+　　我们要复杂对象的创建过程和这个对象的表示（展示）分离开来，
+
+　　这样做的好处就是通过一步步的进行复杂对象的构建，
+
+　　由于在每一步的构造过程中可以引入参数，使得经过相同的步骤创建最后得到的对象的展示不一样。
+class Product 
+{
+	@Override 
+	public String toString() 
+	{ 
+        	return "Product";
+	}
+}
+interface Builder 
+{
+	void BuildPart(); 
+} 
+class ConcreteBuilder implements Builder 
+{
+	@Override 
+	public void BuildPart()
+	{ 
+	        // TODO Auto-generated method stub 
+        	System.out.println("Building Product's part"); 
+	}
+	public Product GetResult()
+	{
+		System.out.println("Product's Building has finished");
+		return new Product();
+	} 
+}
+class Director 
+{ 
+    public Product Construct(ConcreteBuilder cb) 
+    { 
+        cb.BuildPart(); 
+        return cb.GetResult(); 
+    } 
+} 
+ 
+public class BuilderDemo { 
+ 
+    /** 
+     * @param args 
+     */ 
+    public static void main(String[] args) { 
+        // TODO Auto-generated method stub 
+        Director d=new Director(); 
+        ConcreteBuilder cb=new ConcreteBuilder(); 
+        Product p=d.Construct(cb); 
+        System.out.println(p); 
+    } 
+} 
+
+
+效果：
+
+1 隐藏产品的内部表示
+
+　　Builder提供创建产品的接口给Director，
+
+　　隐藏了产品的内部结构（仅提供接口BuildPart()创建产品）
+
+　　隐藏该产品是如何装配的(BuildPart()内部装配是隐藏的)。
+
+2 将构造代码和表示代码分开
+
+　　构造代码是在Builder提供的接口中完成的，每个ConcreateBuilder包含了创建和装配一个特定产品的所有代码。
+
+　　提供不同的Builder，使用相同的Director导向过程可以得到不同的表示。
+
+　　使用的不同Client可以使用相同的Builder，得到不同相同的表示。
