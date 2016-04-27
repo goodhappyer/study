@@ -1,0 +1,75 @@
+readelf
+readelf命令是Linux下的分析ELF文件的命令，这个命令在分析ELF文件格式时非常有用，下面以ELF格式可执行文件test为例详细介绍：
+
+
+
+readelf -v
+
+显示版本
+
+
+
+readelf -h
+
+显示帮助
+
+
+
+readelf -a test
+
+显示test的全部信息
+
+
+
+readelf -h test
+显示test的ELF Header的文件头信息（就是ELF文件开始的前52个字节）
+
+readelf -l test
+显示test的Program Header Table中的每个Prgram Header Entry的信息（如果有）
+
+readelf -S test
+显示test的Section Header Table中的每个Section Header Entry的信息（如果有）
+
+
+readelf -g test
+显示test的Section Group的信息（如果有）
+
+readelf -s test
+显示test的Symbol Table中的每个Symbol  Table Entry的信息（如果有）
+
+
+readelf -e test
+
+显示test的全部头信息（包括ELF Header，Section Header和Program Header，等同与 readelf -h -l -S test）
+
+
+
+
+
+readelf -n test
+
+显示test的note段的信息（如果有）
+
+
+
+
+
+readelf -r test
+
+显示test中的可重定位段的信息（如果有）
+
+
+
+
+
+readelf -d test
+
+显示test中的Dynamic Section的信息（如果有）
+
+
+
+
+
+readelf -V test
+
+显示test中的GNU Version段信息（如果有）
