@@ -1,0 +1,30 @@
+数据结构可以用类似大纲的缩排方式呈现，结构通过缩进来表示，连续的项目通过减号“-”来表示，map结构里面的key/value对用冒号“:”来分隔。样例如下：
+house:
+  family:
+    name: Doe
+    parents:
+      - John
+      - Jane
+    children:
+      - Paul
+      - Mark
+      - Simone
+  address:
+    number: 34
+    street: Main Street
+    city: Nowheretown
+    zipcode: 12345
+注意：
+字串不一定要用双引号标识；
+在缩排中空白字符的数目并不是非常重要，只要相同阶层的元素左侧对齐就可以了（不过不能使用TAB字符）；
+允许在文件中加入选择性的空行，以增加可读性；
+在一个档案中，可同时包含多个文件，并用“——”分隔；
+选择性的符号“...”可以用来表示档案结尾（在利用串流的通讯中，这非常有用，可以在不关闭串流的情况下，发送结束讯号）。
+单行缩写
+YAML也有用来描述好几行相同结构的数据的缩写语法，数组用'[]'包括起来，hash用'{}'来包括。因此，上面的这个YAML能够缩写成这样:
+house:
+  family: { name: Doe, parents: [John, Jane], children: [Paul, Mark, Simone] }
+  address: { number: 34, street: Main Street, city: Nowheretown, zipcode: 12345 }
+
+JSON的语法是YAML1.2版的子集，同时非常接近YAML1.0与1.1版的子集，因此大部分的JSON文件都可以被YAML的剖析器剖析。这是因为JSON的语法结构和YAML的内置格式相同。虽然大范围的分层也可以使用类似JSON的内置格式，不过这并YAML标准并不建议这样使用，除非这样编写能让文件可读性增加。YAML的许多扩展在JSON是找不到的，如：进阶资料形态、关系锚点、字串不需要双引号、映射资料形态会储存键值的顺序。
+
