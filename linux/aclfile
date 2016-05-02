@@ -1,0 +1,13 @@
+user::rwx
+user:http:rwx			
+user:happyer:rwx		
+group::rwx			
+group:http:rwx			
+group:happyer:rwx		
+mask::rwx
+default:user::rwx
+default:user:http:rwx
+default:user:happyer:rwx
+default:group::rwx
+default:group:http:rwx
+default:group:happyer:rwx
