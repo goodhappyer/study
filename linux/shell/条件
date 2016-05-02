@@ -1,1 +1,12 @@
 shell 脚本是命令的堆砌
+[expression]
+[[expression]]
+test expression
+整数比较
+	-eq
+	-ne
+	-gt
+	-lt
+	-ge
+&& 前是真后面运行
+|| 前面为假后面运行
