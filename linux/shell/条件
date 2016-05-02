@@ -10,3 +10,14 @@ test expression
 	-ge
 && 前是真后面运行
 || 前面为假后面运行
+if 条件; then // 注意必须条件后有;
+	statement1
+	statement2
+fi
+双分支
+
+if 条件; then // 注意必须条件后有;
+	statement1
+else
+	statement2
+if
