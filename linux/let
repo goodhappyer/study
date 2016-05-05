@@ -1,0 +1,9 @@
+A=2
+B=1
+let C=$A+$B
+echo C
+C=$($A-$B)
+C=$(($A+$B))
+expr 算术运算表达式表达式中各操作数要有空格
+C=`expr $A + $B`
+echo $C
